@@ -1,0 +1,220 @@
+body,h1,h2,h3,p,td,quote,small,form,input,ul,li,ol,label{
+/* сброс первоначальных стилей, для совместимости браузеров */
+	margin:0px;
+	padding:0px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+	color:#555555;
+	font-size:13px;
+	background-color:#282828;
+}
+
+.clear{	/*  clear-fix хак для чистки потока от флоатов */
+	clear:both;
+}
+
+#main-container{	/* это основной контейнер, содержащий две секции */
+	width:700px;
+	margin:20px auto;
+}
+
+.container{	/* основной контейнер для секций контента - товаров и корзины */
+	margin-bottom:40px;
+}
+
+.top-label{	/* внешний span, включающий в себя название секции*/
+	background: url(img/label_bg.png) no-repeat;	/* отображение левой части label_bg.png - широкого изображения с закругленными краями */
+	display:inline-block;
+	margin-left:20px;
+	position:relative;
+	margin-bottom:-15px;	/* название секции прилегает к верхнему краю секции товаров*/
+}
+
+.label-txt{	/* внутренний span - обведен красной рамкой, на рисунке выше*/
+	background: url(img/label_bg.png) no-repeat top right;	/* отображение правой части изображения label_bg.png */
+	display:inline-block;
+	font-size:10px;
+	height:36px;
+	margin-left:10px;	/* слева оставлено пустое пространство, чтобы отображить фон внешнего span'а */
+	padding:12px 15px 0 5px;
+	text-transform:uppercase;
+}
+
+.content-area{	/* Верхняя часть изображения с закругленными краями, смотрите на рисунке выше */
+	background:url(img/container_top.png) no-repeat #fcfcfc;
+	padding:15px 20px 0 20px;
+}
+
+.content{	/* общий отступ для обеих секций */
+	padding:10px;
+}
+
+.drag-desired{	/* индивидуально назначенные свойства */
+	padding:20px;
+}
+
+.drop-here{	/* не предназначено для других секций */
+	background:url(img/drop_here_label.png) no-repeat top right;
+}
+
+.bottom-container-border{	/* нижняя часть закругленной картинки, которая завершает секцию */
+	background:url(img/container_bottom.png) no-repeat;
+	height:14px;
+}
+
+.product{	/* стили для товаров */
+	border:2px solid #F5F5F5;
+	float:left;
+	margin:15px;
+	padding:10px;
+}
+
+.product img{
+	cursor:move;
+}
+
+p.descr{
+	padding:5px 0;
+}
+
+small{
+	display:block;
+	margin-top:4px;
+}
+
+.tooltip{	/* тултипы, которые создаются с помощью плагина simpletip */
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 3;
+	display: none;
+
+	background-color:#666666;
+	border:1px solid #666666;
+	color:#fcfcfc;
+
+	padding:10px;
+
+	-moz-border-radius:12px;	/* закругленные углы */
+	-khtml-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius:12px;
+}
+
+/*вторая часть CSS*/
+
+#cart-icon{	/* div, который содержит иконку корзины */
+	width:128px;
+	float:left;
+	position:relative;	/* устанавливаем относительное позиционирование, так, чтобы ajax-загрузчик позиционировался по отношению к div*/
+}
+
+#ajax-loader{
+	position:absolute;	/* абсолютное позиционирование располагает элемент на странице, относительно его родительского элемента, которому назначено относительное позиционирование */
+	top:0px;
+	left:0px;
+	visibility:hidden;
+}
+
+#item-list{	/* содержимое корзины будет расположено в этом блоке */
+	float:left;
+	width:490px;
+	margin-left:20px;
+	padding-top:15px;
+}
+
+a.remove,a.remove:visited{	/* Удаление ссылки */
+	color:red;
+	font-size:10px;
+	text-transform:uppercase;
+}
+
+#total{	/* блок, с общей суммой */
+	clear:both;
+	float:right;
+	font-size:10px;
+	font-weight:bold;
+	padding:10px 12px;
+	text-transform:uppercase;
+}
+
+#item-list table{	/* каждый товар в корзине, позиционируется внутри блока item-list*/
+	background-color:#F7F7F7;
+	border:1px solid #EFEFEF;
+	margin-top:5px;
+	padding:4px;
+}
+
+a.button,a.button:visited{	/* Кнопка оформления заказа */
+	display:none;
+
+	height:29px;
+	width:136px;
+
+	padding-top:15px;
+	margin:0 auto;
+	overflow:hidden;
+
+	color:white;
+	font-size:12px;
+	font-weight:bold;
+	text-align:center;
+	text-transform:uppercase;
+
+	background:url(img/button.png) no-repeat center top;	/* отображаем только верхнюю часть фонового изображения */
+}
+
+a.button:hover{
+	background-position:bottom;	/* при наведении, мы показываем нижнюю часть фоногового изображения */
+	text-decoration:none;
+}
+
+/* Несколько менее интересных стилей */
+
+a, a:visited {
+	color:#00BBFF;
+	text-decoration:none;
+	outline:none;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+h1{
+	font-size:28px;
+	font-weight:bold;
+	font-family:"Trebuchet MS",Arial, Helvetica, sans-serif;
+}
+
+h2{
+	font-weight:normal;
+	font-size:20px;
+
+	color:#666666;
+	text-indent:30px;
+	margin:20px 0;
+}
+
+.tutorialzine h1{
+	color:white;
+	margin-bottom:10px;
+	font-size:48px;
+}
+
+.tutorialzine h3{
+	color:#F5F5F5;
+	font-size:10px;
+	font-weight:bold;
+	margin-bottom:30px;
+	text-transform:uppercase;
+}
+
+.tutorial-info{
+	color:white;
+	text-align:center;
+	padding:10px;
+	margin-top:-20px;
+}
